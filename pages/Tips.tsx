@@ -42,7 +42,7 @@ const INITIAL_TIPS: Tip[] = [
     id: 'kw-4',
     title: 'Calcium-Rich Eggshell Tea',
     description: 'Boil crushed eggshells in water, let it sit overnight, and use the water to give your plants a calcium boost to prevent root rot.',
-    imageUrl: 'https://images.unsplash.com/photo-1516684732162-798a0062be99?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1590779033100-9f60a05a013d?q=80&w=800&auto=format&fit=crop',
     category: 'Kitchen Waste Gardening'
   },
   {
@@ -116,7 +116,7 @@ const INITIAL_TIPS: Tip[] = [
     id: 'vs-1',
     title: 'Vedic Pest Control: Neem Oil',
     description: 'Neem is nature\'s pharmacy. A diluted spray keeps aphids and mealybugs away without harming beneficial bees.',
-    imageUrl: 'https://images.unsplash.com/photo-1563201515-b9fa96191986?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1596522026569-8084a4413695?q=80&w=800&auto=format&fit=crop',
     category: 'Vedic Secrets'
   },
   {
