@@ -121,7 +121,7 @@ export const Article: React.FC = () => {
                  {[
                      {title: "Natural Pest Control with Neem", img: "https://images.unsplash.com/photo-1596522026569-8084a4413695?q=80&w=2070&auto=format&fit=crop"},
                      {title: "Growing Herbs Indoors", img: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=2070&auto=format&fit=crop"},
-                     {title: "Vedic Planting Calendar", img: "https://images.unsplash.com/photo-1532960401447-7dd05bef20b0?q=80&w=2035&auto=format&fit=crop"}
+                     {title: "Vedic Planting Calendar", img: "https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&w=2035&auto=format&fit=crop"}
                  ].map((item, idx) => (
                      <div key={idx} className="cursor-pointer group">
                         <div className="h-48 rounded-xl overflow-hidden mb-3 relative">

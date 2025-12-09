@@ -12,7 +12,7 @@ export const Home: React.FC<HomeProps> = ({ setPage }) => {
       {/* Hero Section with Hook */}
       <section className="relative w-full h-[650px] overflow-hidden">
          {/* Background Image Overlay - Hands in Soil / Gardening */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1622383563227-0440113a8620?q=80&w=2832&auto=format&fit=crop')] bg-cover bg-center">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=2832&auto=format&fit=crop')] bg-cover bg-center">
              <div className="absolute inset-0 bg-gradient-to-r from-earth-100/90 via-earth-50/70 to-transparent"></div>
         </div>
 
@@ -118,7 +118,7 @@ export const Home: React.FC<HomeProps> = ({ setPage }) => {
               className="bg-white rounded-3xl p-8 shadow-xl border border-earth-200 flex flex-col md:flex-row items-center gap-8 cursor-pointer group hover:shadow-2xl transition-all"
             >
               <div className="relative w-full md:w-1/2 h-64 md:h-full overflow-hidden rounded-2xl">
-                 <img src="https://images.unsplash.com/photo-1479090225537-76483910668e?q=80&w=800&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Moon Calendar" />
+                 <img src="https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&w=800&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Moon Calendar" />
               </div>
               <div className="w-full md:w-1/2">
                 <span className="text-xs font-bold text-sage-600 uppercase tracking-wider">Vedic Secrets</span>
@@ -134,7 +134,7 @@ export const Home: React.FC<HomeProps> = ({ setPage }) => {
                className="bg-white rounded-3xl p-8 shadow-xl border border-earth-200 flex flex-col md:flex-row items-center gap-8 cursor-pointer group hover:shadow-2xl transition-all"
             >
                <div className="relative w-full md:w-1/2 h-64 md:h-full overflow-hidden rounded-2xl">
-                 <img src="https://images.unsplash.com/photo-1605218427368-23035f524795?q=80&w=800&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Compost" />
+                 <img src="https://images.unsplash.com/photo-1589923188900-85dae5233271?q=80&w=800&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Compost" />
               </div>
               <div className="w-full md:w-1/2">
                 <span className="text-xs font-bold text-orange-600 uppercase tracking-wider">Kitchen Hacks</span>

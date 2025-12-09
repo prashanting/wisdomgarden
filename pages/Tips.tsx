@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Search, Loader2, Sparkles, X } from 'lucide-react';
+import { Search, Sparkles, X } from 'lucide-react';
 import { Tip, Page } from '../types';
-import { getSmartGardeningTip, generateMoreTips } from '../services/geminiService';
 
 interface TipsProps {
   setPage: (page: Page) => void;
@@ -22,14 +21,14 @@ const INITIAL_TIPS: Tip[] = [
     id: 'kw-1',
     title: 'Banana Peel Boost for Tomatoes',
     description: 'Rich in potassium, banana peels naturally enhance tomato growth. Bury chopped peels near the roots to boost flowering.',
-    imageUrl: 'https://images.unsplash.com/photo-1592841207660-6424b7a44a8e?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1594488516806-11e2f75811c7?q=80&w=800&auto=format&fit=crop', 
     category: 'Kitchen Waste Gardening'
   },
   {
     id: 'kw-2',
     title: 'Rice Water Nutrient Drink',
     description: 'The cloudy water left after washing rice is rich in starches and minerals. Cool it down and use it to water your indoor plants.',
-    imageUrl: 'https://images.unsplash.com/photo-1543666299-444456956799?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=800&auto=format&fit=crop',
     category: 'Kitchen Waste Gardening'
   },
   {
@@ -50,7 +49,7 @@ const INITIAL_TIPS: Tip[] = [
     id: 'kw-5',
     title: 'Cucumber Peel Ant Repellent',
     description: 'Place cucumber peels near entry points or ant hills. The alkaloids in the peel act as a natural repellent for ants.',
-    imageUrl: 'https://images.unsplash.com/photo-1449300079323-02e209d9d8a6?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1466854076813-4aa9ac0fc347?q=80&w=800&auto=format&fit=crop',
     category: 'Kitchen Waste Gardening'
   },
   {
@@ -117,21 +116,21 @@ const INITIAL_TIPS: Tip[] = [
     id: 'vs-1',
     title: 'Vedic Pest Control: Neem Oil',
     description: 'Neem is nature\'s pharmacy. A diluted spray keeps aphids and mealybugs away without harming beneficial bees.',
-    imageUrl: 'https://images.unsplash.com/photo-1515284384074-942858b73f8e?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1563201515-b9fa96191986?q=80&w=800&auto=format&fit=crop',
     category: 'Vedic Secrets'
   },
   {
     id: 'vs-2',
     title: 'Moon Phase Gardening',
     description: 'Plant above-ground crops during the waxing moon and root crops during the waning moon for better yield according to Vedic texts.',
-    imageUrl: 'https://images.unsplash.com/photo-1479090225537-76483910668e?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&w=800&auto=format&fit=crop',
     category: 'Vedic Secrets'
   },
   {
     id: 'vs-3',
     title: 'Turmeric Paste for Plant Cuts',
     description: 'If you accidentally damage a branch, apply a paste of turmeric and water to the cut. It acts as a natural antiseptic and healer.',
-    imageUrl: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1615484477778-ca3b77940c25?q=80&w=800&auto=format&fit=crop',
     category: 'Vedic Secrets'
   },
   {
@@ -196,7 +195,7 @@ const INITIAL_TIPS: Tip[] = [
     id: 'pc-6',
     title: 'Ladybug Attraction',
     description: 'Plant fennel or dill to attract ladybugs. One ladybug can eat up to 5,000 aphids in its lifetime!',
-    imageUrl: 'https://images.unsplash.com/photo-1463131379363-2f22b826bcc2?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1452570053594-1b985d6ea218?q=80&w=800&auto=format&fit=crop',
     category: 'Pest Control Naturally'
   },
 
@@ -205,7 +204,7 @@ const INITIAL_TIPS: Tip[] = [
     id: 'sp-1',
     title: 'Toilet Roll Seed Starters',
     description: 'Biodegradable and free! Cut toilet paper rolls in half, fill with soil, and plant seeds. Plant the whole thing directly in the ground.',
-    imageUrl: 'https://images.unsplash.com/photo-1621257497424-345375990594?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1594042875151-51253aa731e8?q=80&w=800&auto=format&fit=crop',
     category: 'Seasonal Planting'
   },
   {
@@ -219,7 +218,7 @@ const INITIAL_TIPS: Tip[] = [
     id: 'sp-3',
     title: 'Saving Tomato Seeds',
     description: 'Scoop out tomato seeds, ferment them in water for 3 days to remove the gel coating, dry them, and store for next season.',
-    imageUrl: 'https://images.unsplash.com/photo-1592841207660-6424b7a44a8e?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1561136120-f6e80b2d6a52?q=80&w=800&auto=format&fit=crop',
     category: 'Seasonal Planting'
   },
   {
@@ -284,16 +283,14 @@ const INITIAL_TIPS: Tip[] = [
     id: 'cb-6',
     title: 'Aeration is Key',
     description: 'Turn your compost pile with a pitchfork once a week. Oxygen is vital for the bacteria that break down your waste into soil.',
-    imageUrl: 'https://images.unsplash.com/photo-1591857177580-dc82b9e4e119?q=80&w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1595856419808-76672322a36e?q=80&w=800&auto=format&fit=crop',
     category: 'Composting Basics'
   }
 ];
 
 export const Tips: React.FC<TipsProps> = ({ setPage }) => {
-  const [tips, setTips] = useState<Tip[]>(INITIAL_TIPS);
+  const [tips] = useState<Tip[]>(INITIAL_TIPS);
   const [searchTerm, setSearchTerm] = useState('');
-  const [aiTip, setAiTip] = useState<string | null>(null);
-  const [loadingAi, setLoadingAi] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   // Search Auto-suggest state
@@ -315,21 +312,16 @@ export const Tips: React.FC<TipsProps> = ({ setPage }) => {
   // Filter tips based on search and category
   const filteredTips = tips.filter(tip => {
     const matchesSearch = tip.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          tip.description.toLowerCase().includes(searchTerm.toLowerCase());
+                          tip.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          tip.category.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory ? tip.category === selectedCategory : true;
     return matchesSearch && matchesCategory;
   });
 
-  const handleSearchSubmit = async (e: React.FormEvent) => {
+  const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!searchTerm) return;
-    
     setShowSuggestions(false);
-    setLoadingAi(true);
-    // 1. Get a specific quick tip from AI
-    const quickAdvice = await getSmartGardeningTip(searchTerm);
-    setAiTip(quickAdvice);
-    setLoadingAi(false);
+    // Search is handled by filtering automatically, no need for API call
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -340,7 +332,7 @@ export const Tips: React.FC<TipsProps> = ({ setPage }) => {
       const lowerValue = value.toLowerCase();
       // Filter unique titles for suggestions
       const titleMatches = tips
-        .filter(t => t.title.toLowerCase().includes(lowerValue))
+        .filter(t => t.title.toLowerCase().includes(lowerValue) || t.category.toLowerCase().includes(lowerValue))
         .map(t => t.title);
       
       const uniqueSuggestions = Array.from(new Set(titleMatches)).slice(0, 5);
@@ -363,11 +355,8 @@ export const Tips: React.FC<TipsProps> = ({ setPage }) => {
     setShowSuggestions(false);
   };
 
-  const loadMoreTipsForCategory = async (cat: string) => {
+  const loadMoreTipsForCategory = (cat: string) => {
     setSelectedCategory(cat);
-    // If we rely on static tips now, we might not need AI generation every time, 
-    // but we can keep it for "infinite scroll" feel if desired.
-    // For now, let's just filter the static list first.
   };
 
   return (
@@ -426,7 +415,7 @@ export const Tips: React.FC<TipsProps> = ({ setPage }) => {
                     <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-earth-400 h-5 w-5 group-focus-within:text-sage-500 transition-colors" />
                     <input
                         type="text"
-                        placeholder="Ask the Guru: e.g., 'how to use turmeric' or 'rice water'..."
+                        placeholder="Search for 'turmeric', 'ants', or 'compost'..."
                         value={searchTerm}
                         onChange={handleInputChange}
                         onFocus={() => {
@@ -462,31 +451,6 @@ export const Tips: React.FC<TipsProps> = ({ setPage }) => {
                     )}
                 </div>
             </form>
-
-            {/* AI Response Area */}
-            {loadingAi && (
-                <div className="mt-4 p-4 bg-white rounded-lg shadow-sm border border-earth-100 flex items-center justify-center text-sage-600">
-                    <Loader2 className="animate-spin h-5 w-5 mr-2" />
-                    <span className="animate-pulse">Consulting the ancient texts...</span>
-                </div>
-            )}
-            
-            {aiTip && !loadingAi && (
-                <div className="mt-6 p-6 bg-gradient-to-br from-white to-sage-50 rounded-xl border border-sage-100 shadow-md animate-fade-in relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-4 opacity-10">
-                      <span className="text-6xl">🌿</span>
-                    </div>
-                    <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-sage-800 font-bold flex items-center gap-2 font-serif">
-                            Vedic Wisdom:
-                        </h4>
-                        <button onClick={() => setAiTip(null)} className="text-earth-400 hover:text-earth-600">
-                            <X className="h-4 w-4"/>
-                        </button>
-                    </div>
-                    <p className="text-earth-800 text-lg leading-relaxed font-medium">"{aiTip}"</p>
-                </div>
-            )}
           </div>
 
           {/* Grid */}
@@ -521,10 +485,10 @@ export const Tips: React.FC<TipsProps> = ({ setPage }) => {
             ))}
           </div>
           
-          {filteredTips.length === 0 && !loadingAi && (
+          {filteredTips.length === 0 && (
               <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-earth-300">
                   <p className="text-earth-500 mb-2">No tips found matching your search.</p>
-                  <p className="text-sage-600 font-medium">Try checking a different category!</p>
+                  <p className="text-sage-600 font-medium">Try checking a different category or simplifying your search!</p>
               </div>
           )}
         </main>
